@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --card-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.15);
+    --card-hover-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.25);
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+}
+
+@layer components {
+  .news-card {
+    @apply relative bg-white rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-1;
+    box-shadow: var(--card-shadow);
+  }
+
+  .news-card:hover {
+    box-shadow: var(--card-hover-shadow);
+  }
+
+  .category-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 
+           hover:bg-gray-100 cursor-pointer;
+  }
+
+  .category-pill.active {
+    @apply bg-gray-900 text-white hover:bg-gray-800;
+  }
+}
+
+.swiper-slide {
+  @apply h-auto;
+}
+
+.card-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.card-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.card-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
